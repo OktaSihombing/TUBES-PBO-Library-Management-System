@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Bulan Mei 2021 pada 13.00
+-- Waktu pembuatan: 19 Bulan Mei 2021 pada 04.21
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.2
 
@@ -43,7 +43,6 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`Admin_ID`, `Name`, `Username`, `password`, `Address`, `Phone`, `Email`) VALUES
-(0, '', 'q', 'q', 'q', 0, 'q'),
 (121212, 'Nama Lengkap', 'Username', 'Password', 'Alamat', 2134, 'a');
 
 -- --------------------------------------------------------
@@ -65,45 +64,11 @@ CREATE TABLE `borrowing` (
 --
 
 INSERT INTO `borrowing` (`subscriber_ID`, `Borrow_Date`, `Item_ID`, `Return_Date`, `Fee`) VALUES
-(1213, '2021-05-19', 1, '2021-06-09', 0),
-(1213, '2021-05-19', 9, '2021-06-09', 0),
+(1213, '2021-05-19', 1, '2021-06-09', NULL),
+(1213, '2021-05-19', 9, '2021-06-09', NULL),
 (1213, '2021-05-19', 5, '2021-06-09', 0),
 (1213, '2021-04-19', 1, '2021-04-19', 0),
-(1213, '2021-03-19', 8, '2021-04-09', 0),
-(1213, '2021-05-19', 2, '2021-08-19', 0),
-(1213, '2021-05-19', 7, '2021-06-09', 0),
-(1122, '2021-05-19', 4, '2021-08-19', NULL),
-(1213, '2021-05-19', 9, '2021-06-09', 0),
-(1213, '2021-05-19', 6, '2021-06-09', 0),
-(1122, '2021-05-19', 2, '2021-08-19', NULL),
-(1122, '2021-05-19', 5, '2021-08-19', 0),
-(1213, '2021-05-19', 3, '2021-08-19', 0),
-(1122, '2021-05-19', 5, '2021-06-09', 0),
-(1213, '2021-05-19', 5, '2021-06-09', 0),
-(1213, '2021-05-19', 6, '2021-06-09', 0),
-(1213, '2021-05-19', 6, '2021-06-09', 0),
-(1213, '2021-05-19', 6, '2021-08-19', 0),
-(1213, '2021-05-19', 5, '2021-08-19', 0),
-(1213, '2021-05-19', 3, '2021-08-19', NULL),
-(1213, '2021-05-19', 9, '2021-08-19', 0),
-(1213, '2021-05-19', 8, '2021-08-19', 0),
-(1213, '2021-05-19', 4, '2021-08-19', NULL),
-(1213, '2021-05-19', 1, '2021-08-19', 0),
-(1122, '2021-05-19', 6, '2021-06-09', 0),
-(1122, '2021-05-19', 3, '2021-06-09', NULL),
-(1213, '2021-05-19', 8, '2021-08-19', 0),
-(1122, '2021-05-19', 7, '2021-08-19', NULL),
-(1213, '2021-05-20', 6, '2021-08-20', 0),
-(1213, '2021-05-20', 2, '2021-08-20', NULL),
-(0, '2021-05-20', 5, '2021-06-10', NULL),
-(1213, '2021-05-20', 3, '2021-08-20', NULL),
-(0, '2021-05-20', 8, '2021-06-10', NULL),
-(1213, '2021-05-21', 0, '2021-08-21', NULL),
-(1213, '2021-05-21', 0, '2021-08-21', NULL),
-(1213, '2021-05-21', 0, '2021-08-21', NULL),
-(1213, '2021-05-21', 0, '2021-08-21', NULL),
-(1213, '2021-05-21', 0, '2021-08-21', NULL),
-(1213, '2021-05-21', 5, '2021-08-21', NULL);
+(1213, '2021-03-19', 8, '2021-04-09', 40000);
 
 -- --------------------------------------------------------
 
@@ -112,9 +77,8 @@ INSERT INTO `borrowing` (`subscriber_ID`, `Borrow_Date`, `Item_ID`, `Return_Date
 --
 
 CREATE TABLE `borrowingsubscribers` (
-  `Subscriber_ID` int(10) DEFAULT NULL,
   `Title_Book` varchar(50) DEFAULT NULL,
-  `borrow_date` date DEFAULT NULL,
+  `borrow_Date` date DEFAULT NULL,
   `Item_ID` int(10) DEFAULT NULL,
   `return_Date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -123,16 +87,9 @@ CREATE TABLE `borrowingsubscribers` (
 -- Dumping data untuk tabel `borrowingsubscribers`
 --
 
-INSERT INTO `borrowingsubscribers` (`Subscriber_ID`, `Title_Book`, `borrow_date`, `Item_ID`, `return_Date`) VALUES
-(1213, 'Spiderman', '2021-05-19', 3, '2021-08-19'),
-(1213, 'Batman and Robin', '2021-05-19', 4, '2021-08-19'),
-(1122, 'Spiderman', '2021-05-19', 3, '2021-06-09'),
-(1122, 'Fisika Dasar', '2021-05-19', 7, '2021-08-19'),
-(1213, 'Senja', '2021-05-20', 2, '2021-08-20'),
-(0, 'Petang', '2021-05-20', 5, '2021-06-10'),
-(1213, 'Spiderman', '2021-05-20', 3, '2021-08-20'),
-(0, 'Malam', '2021-05-20', 8, '2021-06-10'),
-(1213, 'Petang', '2021-05-21', 5, '2021-08-21');
+INSERT INTO `borrowingsubscribers` (`Title_Book`, `borrow_Date`, `Item_ID`, `return_Date`) VALUES
+('Buku Teknik Mesin', '2021-05-19', 1, '2021-06-09'),
+('Iron Man', '2021-05-19', 9, '2021-06-09');
 
 -- --------------------------------------------------------
 
@@ -164,8 +121,7 @@ INSERT INTO `items` (`Item_ID`, `Library_ID`, `Category`, `Title`, `Author`, `Pu
 (6, 2, 'Book', 'Matematika Aljabar', 'Sandy Santoso', 'Sejahtera', 2014, 70),
 (7, 1, 'Book', 'Fisika Dasar', 'Bedu Santoso', 'Wanami', 2006, 170),
 (8, 1, 'Novel', 'Malam', 'Andi Bagus', 'Genjari', 2018, 190),
-(9, 1, 'Comic', 'Iron Man', 'Jack KIrby', 'Marvel', 1968, 250),
-(10, 1, 'Novel', 'Sunyi', 'Dwi Putra', 'Bahari', 2017, 106);
+(9, 1, 'Comic', 'Iron Man', 'Jack KIrby', 'Marvel', 1968, 250);
 
 -- --------------------------------------------------------
 
@@ -209,7 +165,6 @@ CREATE TABLE `subscribers` (
 --
 
 INSERT INTO `subscribers` (`Subscriber_ID`, `Type`, `Name`, `username`, `password`, `Address`, `Phone`, `Email`) VALUES
-(0, 'Regular', 'ezio', 'ezio', 'ezio', 'jl. mangga', 2147483647, 'ezio@gmail.com'),
 (1122, 'Golden', 'samsul', 'samsul', '123', 'jl. km', 1212121212, 'qweqwad'),
 (1213, 'Golden', 'Nama Lengkap', 'a', 'a', 'Alamat', 123, 'E-mail');
 
@@ -233,7 +188,6 @@ ALTER TABLE `borrowing`
 -- Indeks untuk tabel `borrowingsubscribers`
 --
 ALTER TABLE `borrowingsubscribers`
-  ADD KEY `Subscriber_ID` (`Subscriber_ID`),
   ADD KEY `Item_ID` (`Item_ID`);
 
 --
@@ -269,8 +223,7 @@ ALTER TABLE `borrowing`
 -- Ketidakleluasaan untuk tabel `borrowingsubscribers`
 --
 ALTER TABLE `borrowingsubscribers`
-  ADD CONSTRAINT `borrowingsubscribers_ibfk_1` FOREIGN KEY (`Subscriber_ID`) REFERENCES `borrowing` (`subscriber_ID`),
-  ADD CONSTRAINT `borrowingsubscribers_ibfk_2` FOREIGN KEY (`Item_ID`) REFERENCES `items` (`Item_ID`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `borrowingsubscribers_ibfk_1` FOREIGN KEY (`Item_ID`) REFERENCES `items` (`Item_ID`) ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `items`
